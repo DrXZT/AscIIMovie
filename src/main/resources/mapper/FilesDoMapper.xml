@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drxzt.asciimovie.dao.FilesDoMapper">
+  <resultMap id="BaseResultMap" type="com.drxzt.asciimovie.entities.FilesDo">
+    <id column="file_id" jdbcType="INTEGER" property="fileId" />
+    <result column="old_file_url" jdbcType="VARCHAR" property="oldFileUrl" />
+    <result column="new_file_url" jdbcType="VARCHAR" property="newFileUrl" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="new_file_memory" jdbcType="INTEGER" property="newFileMemory" />
+    <result column="old_file_memory" jdbcType="INTEGER" property="oldFileMemory" />
+    <result column="transformTime" jdbcType="INTEGER" property="transformtime" />
+    <result column="user_ip" jdbcType="VARCHAR" property="userIp" />
+    <result column="new_file_name" jdbcType="VARCHAR" property="newFileName" />
+    <result column="old_file_name" jdbcType="VARCHAR" property="oldFileName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    file_id, old_file_url, new_file_url, state, new_file_memory, old_file_memory, transformTime, 
+    user_ip, new_file_name, old_file_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from files
+    where file_id = #{fileId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from files
+    where file_id = #{fileId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.drxzt.asciimovie.entities.FilesDo">
+    insert into files (file_id, old_file_url, new_file_url, 
+      state, new_file_memory, old_file_memory, 
+      transformTime, user_ip, new_file_name, 
+      old_file_name)
+    values (#{fileId,jdbcType=INTEGER}, #{oldFileUrl,jdbcType=VARCHAR}, #{newFileUrl,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{newFileMemory,jdbcType=INTEGER}, #{oldFileMemory,jdbcType=INTEGER}, 
+      #{transformtime,jdbcType=INTEGER}, #{userIp,jdbcType=VARCHAR}, #{newFileName,jdbcType=VARCHAR}, 
+      #{oldFileName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="fileId" parameterType="com.drxzt.asciimovie.entities.FilesDo">
+    insert into files
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileId != null">
+        file_id,
+      </if>
+      <if test="oldFileUrl != null">
+        old_file_url,
+      </if>
+      <if test="newFileUrl != null">
+        new_file_url,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="newFileMemory != null">
+        new_file_memory,
+      </if>
+      <if test="oldFileMemory != null">
+        old_file_memory,
+      </if>
+      <if test="transformtime != null">
+        transformTime,
+      </if>
+      <if test="userIp != null">
+        user_ip,
+      </if>
+      <if test="newFileName != null">
+        new_file_name,
+      </if>
+      <if test="oldFileName != null">
+        old_file_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileId != null">
+        #{fileId,jdbcType=INTEGER},
+      </if>
+      <if test="oldFileUrl != null">
+        #{oldFileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="newFileUrl != null">
+        #{newFileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="newFileMemory != null">
+        #{newFileMemory,jdbcType=INTEGER},
+      </if>
+      <if test="oldFileMemory != null">
+        #{oldFileMemory,jdbcType=INTEGER},
+      </if>
+      <if test="transformtime != null">
+        #{transformtime,jdbcType=INTEGER},
+      </if>
+      <if test="userIp != null">
+        #{userIp,jdbcType=VARCHAR},
+      </if>
+      <if test="newFileName != null">
+        #{newFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="oldFileName != null">
+        #{oldFileName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.drxzt.asciimovie.entities.FilesDo">
+    update files
+    <set>
+      <if test="oldFileUrl != null">
+        old_file_url = #{oldFileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="newFileUrl != null">
+        new_file_url = #{newFileUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="newFileMemory != null">
+        new_file_memory = #{newFileMemory,jdbcType=INTEGER},
+      </if>
+      <if test="oldFileMemory != null">
+        old_file_memory = #{oldFileMemory,jdbcType=INTEGER},
+      </if>
+      <if test="transformtime != null">
+        transformTime = #{transformtime,jdbcType=INTEGER},
+      </if>
+      <if test="userIp != null">
+        user_ip = #{userIp,jdbcType=VARCHAR},
+      </if>
+      <if test="newFileName != null">
+        new_file_name = #{newFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="oldFileName != null">
+        old_file_name = #{oldFileName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where file_id = #{fileId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.drxzt.asciimovie.entities.FilesDo">
+    update files
+    set old_file_url = #{oldFileUrl,jdbcType=VARCHAR},
+      new_file_url = #{newFileUrl,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      new_file_memory = #{newFileMemory,jdbcType=INTEGER},
+      old_file_memory = #{oldFileMemory,jdbcType=INTEGER},
+      transformTime = #{transformtime,jdbcType=INTEGER},
+      user_ip = #{userIp,jdbcType=VARCHAR},
+      new_file_name = #{newFileName,jdbcType=VARCHAR},
+      old_file_name = #{oldFileName,jdbcType=VARCHAR}
+    where file_id = #{fileId,jdbcType=INTEGER}
+  </update>
+
+</mapper>

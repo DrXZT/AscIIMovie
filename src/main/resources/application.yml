@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/AscIImovie?serverTimezone=GMT%2B8&&useCursorFetch=true&&characterEncoding=utf8
+    username: root
+    password: ls123123
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 50MB
+
+mybatis:
+  type-aliases-package: com.tzb.entities
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+
+#mapper:
+#  #写接口
+#  mappers:
+#  - com.example.demo111.entities.User
+#  not-empty: false
+#  identity: MYSQL
+#resource:
+#  name: lamar
+#  website: www.lamar.com
+#  language: java
+#  grantType: authorization_code
+#restart:
+#  include:
+#    mapper: /mapper-[\\w-\\.]+jar
+
+#pagehelper:
+#  dialect: com.github.pagehelper.PageHelper
+#  reasonable: true
+#  support-methods-arguments: true
+#  params: count=countSql
+
+#    pagehelper: /pagehelper-[\\w-\\.]+jar

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drxzt.asciimovie.dao.LogDoMapper">
+  <resultMap id="BaseResultMap" type="com.drxzt.asciimovie.entities.LogDo">
+    <id column="log_id" jdbcType="INTEGER" property="logId" />
+    <result column="user_ip" jdbcType="VARCHAR" property="userIp" />
+    <result column="controllor" jdbcType="VARCHAR" property="controllor" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    log_id, user_ip, controllor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from log
+    where log_id = #{logId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from log
+    where log_id = #{logId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.drxzt.asciimovie.entities.LogDo">
+    insert into log (log_id, user_ip, controllor
+      )
+    values (#{logId,jdbcType=INTEGER}, #{userIp,jdbcType=VARCHAR}, #{controllor,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.drxzt.asciimovie.entities.LogDo">
+    insert into log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logId != null">
+        log_id,
+      </if>
+      <if test="userIp != null">
+        user_ip,
+      </if>
+      <if test="controllor != null">
+        controllor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logId != null">
+        #{logId,jdbcType=INTEGER},
+      </if>
+      <if test="userIp != null">
+        #{userIp,jdbcType=VARCHAR},
+      </if>
+      <if test="controllor != null">
+        #{controllor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.drxzt.asciimovie.entities.LogDo">
+    update log
+    <set>
+      <if test="userIp != null">
+        user_ip = #{userIp,jdbcType=VARCHAR},
+      </if>
+      <if test="controllor != null">
+        controllor = #{controllor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where log_id = #{logId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.drxzt.asciimovie.entities.LogDo">
+    update log
+    set user_ip = #{userIp,jdbcType=VARCHAR},
+      controllor = #{controllor,jdbcType=VARCHAR}
+    where log_id = #{logId,jdbcType=INTEGER}
+  </update>
+
+</mapper>

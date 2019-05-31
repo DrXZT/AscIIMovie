@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.box{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to top, #007add, #000623,#000);
+}
+.top{
+    height: 30px;
+    line-height: 24px;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.title{
+    color: #007ADD;
+    font-size: 30px;
+}
+.ThreeLine{
+    height: 30px;
+    line-height: 30px;
+}
+.divideLine{
+    height: 1px;
+    width: 100%;
+    background-color: #007ADD;
+}
+.middle{
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    margin: 40px 0;
+}
+.bottom{
+    width:730px;
+    background-color: white;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+    box-shadow:1px 1px 10px #000000;
+    /*justify-content: space-around;*/
+    padding: 50px 30px;
+}
+.left{
+    display: flex;
+}
+.gif,.ASCII{
+    height: 360px;
+    width: 270px;
+ /*  background-color: #cccccc;*/
+    text-align: center;
+    font-size: 15px;
+    color: #707070;
+    border-radius: 3px;
+    box-shadow:1px 1px 10px #cccccc;
+    border:0.3px #cccccc dashed;
+}
+.pic{
+    height:240px ;
+    line-height: 240px;
+}
+.changeSign{
+    height: 360px;
+    line-height:360px ;
+    margin: 0 20px;
+}
+.right{
+    padding: 95px 30px;
+    text-align: center;
+    height: 170px;
+}
+.upload,.change,.download{
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    background-color: #007ADD;
+    color: white;
+    font-size: 14px;
+    margin:20px 0 ;
+}
+.blank{
+    height: 350px;
+}
