@@ -2,38 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>jquery提交表单</title>
-    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <title>GifFun</title>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-<form action="" id="myform">
-    用户名<input type="text" name="username"/>
-    密码<input type="password" name="password"/>
-    性别<input type="radio" name="sex" value="男人">man
-    <input type="radio" name="sex" value="女人">woman
-</form>
+asd
+<div class="box">
+    <div class="top">
+        <div class="title">
+            <span>GifFun</span>
+        </div>
+        <div class="ThreeLine">
+            <i class="iconfont" style="font-size: 8px;color: #007ADD">&#xe753;</i>
+            <i class="iconfont" style="font-size: 8px;color: #007ADD;margin-left: 5px;">&#xe754;</i>
+        </div>
+    </div>
+    <div class="divideLine"></div>
+    <div class="middle">
+        <div>Gif-->ASCII</div>
+        <div>上传一张gif动图，我们将为你转换为有趣的</div>
+        <div>动态ASCII码图</div>
+    </div>
+    <div class="bottom">
+        <div class="left">
+            <div class="gif">
+                <div class="pic">
+                    <i class="iconfont" style="font-size: 14px;color: #707070">&#xe619;</i>
+                </div>
+                <div>点击上传按钮，上传</div>
+                <div>你的图片</div>
+            </div>
+            <div class="changeSign">
+                <i class="iconfont" style="font-size: 10px;color: #007add">&#xe600;</i>
+            </div>
+            <div class="ASCII">
+                <div class="pic">
+                    <i class="iconfont" style="font-size: 14px;color: #707070">&#xe619;</i>
+                </div>
+                <div>点击转换按钮，见证</div>
+                <div>奇迹时刻</div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="upload">上传动图</div>
+            <div class="change">一键转换</div>
+            <div class="download">下载图片</div>
+        </div>
+    </div>
+    <div class="blank"></div>
+    <input class="uploadImg" type="file" value='上传'>
+    <script src="jQuery/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            var img = {}
+            $(".uploadImg").on('change',  function (e) {
+                img = e.target.files[0];
+            })
 
-<a href="#" style="text-decoration: none;">使用ajax提交表单数据</a>
-<div>
-    <p id="divp">before..</p>
+            $(".upload").on("click", function () {
+                var imgList = new FormData()
+                imgList.append("img", img)
+                console.log(imgList);
+                //接口地址
+                $.ajax({
+                    type: 'POST',
+                    data: imgList,
+                    processData: false,
+                    contentType : false,
+                    url: 'http://192.168.3.74:8080/index/getFile',
+                    success: function (res) {
+                        console.log(res);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            })
+        })
+    </script>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("a").click(function(){
-            $.ajax({
-                type:'post',
-                url:'/index/jquerydata',
-                data:$("#myform").serialize(),
-                cache:false,
-                dataType:'json',
-                success:function(data){
-                    $("#divp").html('after: ' + data);
-                }
-            });
-        });
-    });
-</script>
-
 </body>
 </html>
