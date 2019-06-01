@@ -34,13 +34,27 @@
     text-align: center;
     margin: 40px 0;
 }
+.viceTitile{
+    display: flex;
+    font-size: 18px;
+    color: #707070;
+}
 .bottom{
-    width:730px;
+    width:750px;
     background-color: white;
     border-radius: 5px;
     margin: auto;
     display: flex;
     box-shadow:1px 1px 10px #000000;
+    /*justify-content: space-around;*/
+    padding: 50px 30px;
+}
+.bottomBox{
+    width:730px;
+    background-color: white;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
     /*justify-content: space-around;*/
     padding: 50px 30px;
 }
@@ -59,6 +73,34 @@
     border:0.3px #cccccc dashed;
 }
 .pic{
+    height:240px ;
+    line-height: 240px;
+    opacity: 0;
+
+}
+.gif{
+    position: relative;
+}
+#uploadImg1{
+    position: absolute;
+    height: 360px;
+    width: 270px;
+    top:0;
+    left: 0;
+}
+.sign1{
+    /*height:240px ;
+    line-height: 240px;*/
+    position:absolute;
+    top:104px;
+    left:120px;
+}
+.text{
+    position:absolute;
+    top:241px;
+    left:70px;
+}
+.sign2{
     height:240px ;
     line-height: 240px;
 }

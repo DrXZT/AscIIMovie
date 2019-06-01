@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>GifFun</title>
-    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
 </head>
 <body>
 <div class="box">
@@ -14,7 +15,7 @@
         </div>
         <div class="ThreeLine">
             <i class="iconfont" style="font-size: 25px;color: #007ADD">&#xe753;</i>
-            <i class="iconfont" style="font-size: 25px;color: #007ADD;margin-left: 10px;">&#xe754;</i>
+            <i class="iconfont" style="font-size: 25px;color: #007ADD;margin-left: 20px;">&#xe754;</i>
         </div>
     </div>
     <div class="divideLine"></div>
@@ -24,33 +25,95 @@
         <div>动态ASCII码图</div>
     </div>
     <div class="bottom">
-        <div class="left">
-            <div class="gif">
-                <div class="pic">
-                    <i class="iconfont" style="font-size: 35px;color: #707070">&#xe619;</i>
+        <!--<div class="viceTitile">
+            <div>动态图像转换</div>
+            <div>黑白图像上色</div>
+        </div>-->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="bottomBox">
+                        <div class="left">
+                            <div class="gif">
+                                <div>
+                                    <input  class="pic" type="file">
+                                </div>
+                                <div class="sign1">
+                                    <i class="iconfont" id="upload1" style="font-size: 35px;color: #707070">&#xe619;</i>
+                                </div>
+                                <div class="text">
+                                    <div>点击上传按钮，上传</div>
+                                    <div>你的图片</div>
+                                </div>
+                                <img src="" alt="" id="uploadImg1" style="display: none">
+                            </div>
+                            <div class="changeSign">
+                                <i class="iconfont" style="font-size: 25px;color: #007add">&#xe600;</i>
+                            </div>
+                            <div class="ASCII">
+                                <div class="sign2">
+                                    <i class="iconfont" style="font-size: 35px;color: #707070">&#xe619;</i>
+                                </div>
+                                <div>点击转换按钮，见证</div>
+                                <div>奇迹时刻</div>
+                                <img src="" alt="" id="changeImg1">
+                            </div>
+
+                        </div>
+                        <div class="right">
+                            <div class="upload">上传动图</div>
+                            <div class="change">一键转换</div>
+                            <div class="download">下载图片</div>
+                        </div>
+                    </div>
                 </div>
-                <div>点击上传按钮，上传</div>
-                <div>你的图片</div>
-            </div>
-            <div class="changeSign">
-                <i class="iconfont" style="font-size: 25px;color: #007add">&#xe600;</i>
-            </div>
-            <div class="ASCII">
-                <div class="pic">
-                    <i class="iconfont" style="font-size: 35px;color: #707070">&#xe619;</i>
+                <div class="swiper-slide">
+                    <div class="bottomBox">
+                        <div class="left">
+                            <div class="gif">
+                                <div>
+                                    <input  class="pic" type="file">
+                                </div>
+                                <div class="sign1">
+                                    <i class="iconfont" id="upload2" style="font-size: 35px;color: #707070">&#xe619;</i>
+                                </div>
+                                <div class="text">
+                                    <div>点击上传按钮，上传</div>
+                                    <div>你的图片</div>
+                                </div>
+                                <img src="" alt="" id="uploadImg2">
+                            </div>
+                            <div class="changeSign">
+                                <i class="iconfont" style="font-size: 25px;color: #007add">&#xe600;</i>
+                            </div>
+                            <div class="ASCII">
+                                <div class="sign2">
+                                    <i class="iconfont" style="font-size: 35px;color: #707070">&#xe619;</i>
+                                </div>
+                                <div>点击转换按钮，见证</div>
+                                <div>奇迹时刻</div>
+                                <img src="" alt="" id="changeImg2">
+                            </div>
+
+                        </div>
+                        <div class="right">
+                            <div class="upload">上传动图</div>
+                            <div class="change">一键转换</div>
+                            <div class="download">下载图片</div>
+                        </div>
+                    </div>
                 </div>
-                <div>点击转换按钮，见证</div>
-                <div>奇迹时刻</div>
             </div>
-        </div>
-        <div class="right">
-            <div class="upload">上传动图</div>
-            <div class="change">一键转换</div>
-            <div class="download">下载图片</div>
         </div>
     </div>
+
+
     <div class="blank"></div>
-    <script src="jQuery/jquery-3.4.1.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../jQuery/jquery-3.4.1.min.js"></script>
+    <script src="../js/onclick.js"></script>
+    <script src="../js/upload.js"></script>
 </div>
+<script src="../js/swiper.js"></script>
 </body>
 </html>
