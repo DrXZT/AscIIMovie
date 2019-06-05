@@ -1,6 +1,5 @@
 package com.drxzt.asciimovie.commous;
 
-import java.nio.file.Paths;
 
 /**
  * className Constants
@@ -17,5 +16,4 @@ public final class Constants {
     public final static String IMG_URL = "localhost:8080/img/";
     public final static String CLIENT_ID = "eMo6rnLqqaBvg6jG8dpTHcAd";
     public final static String CLIENT_SECRET = "GLM4NlITSbL4hvD3eeZMdy2nf2SLNQAm";
-    public static String ACCESS_TOKEN ;
 }

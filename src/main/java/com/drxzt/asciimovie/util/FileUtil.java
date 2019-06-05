@@ -1,51 +1,72 @@
 package com.drxzt.asciimovie.util;
 
-
-import com.drxzt.asciimovie.commous.UploadResult;
-import org.apache.commons.io.FilenameUtils;
-import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.UUID;
-
-import static com.drxzt.asciimovie.commous.Constants.SERVER_DATA_URL;
-
+import java.io.*;
 
 /**
- * className FileUtil
- * description TODO
- *
- * @author DR XZT
- * @version 1.0
- * @date 2019/3/27 16:30
+ * 文件读取工具类
  */
-@Component
 public class FileUtil {
-    public UploadResult save(MultipartFile file) {
-        UploadResult uploadResult = new UploadResult();
-        if (Files.notExists(Paths.get(SERVER_DATA_URL))) {
+
+    /**
+     * 读取文件内容，作为字符串返回
+     */
+    public static String readFileAsString(String filePath) throws IOException {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            throw new FileNotFoundException(filePath);
+        } 
+
+        if (file.length() > 1024 * 1024 * 1024) {
+            throw new IOException("File is too large");
+        } 
+
+        StringBuilder sb = new StringBuilder((int) (file.length()));
+        // 创建字节输入流  
+        FileInputStream fis = new FileInputStream(filePath);  
+        // 创建一个长度为10240的Buffer
+        byte[] bbuf = new byte[10240];  
+        // 用于保存实际读取的字节数  
+        int hasRead = 0;  
+        while ( (hasRead = fis.read(bbuf)) > 0 ) {  
+            sb.append(new String(bbuf, 0, hasRead));  
+        }  
+        fis.close();  
+        return sb.toString();
+    }
+
+    /**
+     * 根据文件路径读取byte[] 数组
+     */
+    public static byte[] readFileByBytes(String filePath) throws IOException {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            throw new FileNotFoundException(filePath);
+        } else {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream((int) file.length());
+            BufferedInputStream in = null;
+
             try {
-                Files.createDirectories(Paths.get(SERVER_DATA_URL));
-            } catch (IOException e) {
-                uploadResult.failed("创建上传目录错误！");
+                in = new BufferedInputStream(new FileInputStream(file));
+                short bufSize = 1024;
+                byte[] buffer = new byte[bufSize];
+                int len1;
+                while (-1 != (len1 = in.read(buffer, 0, bufSize))) {
+                    bos.write(buffer, 0, len1);
+                }
+
+                byte[] var7 = bos.toByteArray();
+                return var7;
+            } finally {
+                try {
+                    if (in != null) {
+                        in.close();
+                    }
+                } catch (IOException var14) {
+                    var14.printStackTrace();
+                }
+
+                bos.close();
             }
         }
-        String newFileName = UUID.randomUUID().toString() + "." + FilenameUtils.getExtension(file.getOriginalFilename());
-        Path path = Paths.get(SERVER_DATA_URL, newFileName);
-        try {
-           // Thumbnails.of(file.getInputStream()).scale(0.25f).toFile(path.toFile());
-            Files.copy(file.getInputStream(), path);
-        } catch (IOException e) {
-            e.printStackTrace();
-            uploadResult.failed();
-            return uploadResult;
-        }
-        uploadResult.setPath(path);
-        uploadResult.successful(path.toString(),newFileName,FilenameUtils.getExtension(file.getOriginalFilename()));
-        return uploadResult;
     }
 }

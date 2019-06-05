@@ -1,6 +1,8 @@
 package com.drxzt.asciimovie.controller;
 
 import org.apache.ibatis.annotations.Param;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,7 +23,7 @@ import static com.drxzt.asciimovie.commous.Constants.SERVER_DATA_URL;
  */
 @Controller
 public class DownLoadController {
-
+    private static final Logger logger = LoggerFactory.getLogger(DownLoadController.class);
     //实现Spring Boot 的文件下载功能，映射网址为/download
     @RequestMapping("/download")
     public String downloadFile(HttpServletRequest request,@Param("fileName") String fileName,
@@ -53,10 +55,10 @@ public class DownLoadController {
                         os.write(buffer, 0, i);
                         i = bis.read(buffer);
                     }
-                    System.out.println("Download the song successfully!");
+                    logger.info("[API] : [ /Download] ,Download the File successfully ");
                 }
                 catch (Exception e) {
-                    System.out.println("Download the song failed!");
+                    logger.info("[API] : [ /Download] ,Download the File fall ");
                 }
                 finally {
                     if (bis != null) {

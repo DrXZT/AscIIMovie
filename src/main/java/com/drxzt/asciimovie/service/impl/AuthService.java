@@ -39,9 +39,9 @@ public class AuthService {
     @Autowired
     TokenDoMapper tokenDoMapper;
 
-    @Scheduled(cron = "0 */1 *  * * *")
+    @Scheduled(cron = "0 15 10 ? * MON")
     public void  getAuth() {
-        System.out.println("开始");
+        System.out.println("更新百度TOKEN");
         // 获取token地址
         String authHost = "https://aip.baidubce.com/oauth/2.0/token?";
         String getAccessTokenUrl = authHost

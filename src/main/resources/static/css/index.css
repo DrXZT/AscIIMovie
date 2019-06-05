@@ -27,44 +27,48 @@
     height: 1px;
     width: 100%;
     background-color: #007ADD;
+    margin-bottom: 70px;
 }
 .middle{
-    color: #ffffff;
+    line-height: 30px;
+    color: #007add;
     font-size: 20px;
     text-align: center;
-    margin: 40px 0;
-}
-.viceTitile{
-    display: flex;
-    font-size: 18px;
-    color: #707070;
+    /*margin: px 0;*/
 }
 .bottom{
-    width:750px;
+    width:900px;
     background-color: white;
     border-radius: 5px;
     margin: auto;
-    display: flex;
     box-shadow:1px 1px 10px #000000;
     /*justify-content: space-around;*/
-    padding: 50px 30px;
+    padding: 30px 30px 0 30px;
+}
+.swiper-scrollbar{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #007add;
+}
+.swiper-container{
+    display: flex;
 }
 .bottomBox{
-    width:730px;
+    width:785px;
     background-color: white;
     border-radius: 5px;
     margin: auto;
-    display: flex;
     /*justify-content: space-around;*/
-    padding: 50px 30px;
+    padding: 30px 30px;
 }
 .left{
     display: flex;
 }
 .gif,.ASCII{
-    height: 360px;
-    width: 270px;
- /*  background-color: #cccccc;*/
+    height: 270px;
+    width: 360px;
+    /*  background-color: #cccccc;*/
     text-align: center;
     font-size: 15px;
     color: #707070;
@@ -76,15 +80,14 @@
     height:240px ;
     line-height: 240px;
     opacity: 0;
-
 }
 .gif{
     position: relative;
 }
 #uploadImg1{
     position: absolute;
-    height: 360px;
-    width: 270px;
+    height: 270px;
+    width: 360px;
     top:0;
     left: 0;
 }
@@ -92,27 +95,28 @@
     /*height:240px ;
     line-height: 240px;*/
     position:absolute;
-    top:104px;
-    left:120px;
+    top:85px;
+    left:160px;
 }
 .text{
     position:absolute;
-    top:241px;
-    left:70px;
+    top:200px;
+    left:115px;
 }
 .sign2{
-    height:240px ;
-    line-height: 240px;
+    height:200px ;
+    line-height: 200px;
 }
 .changeSign{
-    height: 360px;
-    line-height:360px ;
+    height: 240px;
+    line-height:240px ;
     margin: 0 20px;
 }
 .right{
-    padding: 95px 30px;
     text-align: center;
-    height: 170px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 20px 0 10px 0;
 }
 .upload,.change,.download{
     width: 60px;
@@ -123,7 +127,7 @@
     background-color: #007ADD;
     color: white;
     font-size: 14px;
-    margin:20px 0 ;
+    margin:10px 15px ;
 }
 .blank{
     height: 350px;

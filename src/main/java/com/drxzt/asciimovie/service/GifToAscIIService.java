@@ -17,4 +17,5 @@ import java.io.File;
 public interface GifToAscIIService {
     Result getFile(MultipartFile file,String ip);
     Result gifToAscII (Integer fileId);
+    Result toColorful(Integer fileId);
 }
