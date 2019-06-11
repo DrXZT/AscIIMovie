@@ -1,7 +1,7 @@
 var img = {};
 $(".pic").on('change',function (e) {
     img = e.target.files[0];
-    var url = getObjectURL(img)
+    var url = getObjectURL(img);
     $("#uploadImg1").attr('src', url);
     $("#uploadImg1").css("display","block");
 });

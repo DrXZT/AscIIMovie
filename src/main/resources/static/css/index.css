@@ -84,7 +84,17 @@
 .gif{
     position: relative;
 }
-#uploadImg1,#changeImg1{
+.ASCII{
+    position: relative;
+}
+#uploadImg1{
+    position: absolute;
+    height: 270px;
+    width: 360px;
+    top:0;
+    left: 0;
+}
+#changeImg1{
     position: absolute;
     height: 270px;
     width: 360px;
