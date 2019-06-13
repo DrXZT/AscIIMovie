@@ -18,4 +18,5 @@ public interface GifToAscIIService {
     Result getFile(MultipartFile file,String ip);
     Result gifToAscII (Integer fileId);
     Result toColorful(Integer fileId);
+    Result AndroidChange(MultipartFile file,String ip);
 }

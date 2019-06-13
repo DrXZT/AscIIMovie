@@ -85,4 +85,22 @@ public class GifToAscIIServiceImpl implements GifToAscIIService {
             return Result.success(IMG_URL + filesDo.getNewFileName());
         }
     }
+
+    public  Result AndroidChange(MultipartFile file,String ip){
+        logger.info("[Service] : [ getFile ] , ip : [ {} ] ,fileName: [ {} ],fileSize: [ {} ]", ip, file.getName(), file.getSize() / 1024);
+        UploadResult uploadResult = fileSaveUtil.save(file);
+        if (uploadResult.isSuccess()) {
+            int memory = (int) file.getSize() / 1024;
+            FilesDo filesDo = new FilesDo(uploadResult.getUrl(), 0, memory, ip, uploadResult.getName());
+            filesDoMapper.insertSelective(filesDo);
+            long startTime = System.currentTimeMillis();
+            filesDo = imgToCharacter.readGiF(filesDo);
+            long endTime = System.currentTimeMillis();
+            filesDo.setTransformtime((int) (endTime - startTime));
+            filesDoMapper.updateByPrimaryKeySelective(filesDo);
+            return Result.success(IMG_URL + filesDo.getNewFileName());
+        } else {
+            return Result.build(0, uploadResult.getMessage(), null);
+        }
+    }
 }
